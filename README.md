@@ -13,8 +13,8 @@ GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single pag
 ./gradlew && ./gradlew oci:build -x test
 java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
 </pre>
-6. Create DevOps project and build and deploy the JVM container to OKE
-7. Create OCI load balancer to access the the application from browser:
+6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling
+7. Create OCI load balancer with <code>kubectl</code> to access the the application from browser:
 <pre>
 kubectl apply -f - &lt;&lt;EOF
 apiVersion: v1
