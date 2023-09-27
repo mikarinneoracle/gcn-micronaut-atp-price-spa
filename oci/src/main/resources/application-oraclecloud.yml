@@ -15,8 +15,9 @@ datasources:
     password: WelcomeFolks123#!
     dialect: ORACLE
 oci:
-  instance-principal:
-    enabled: true
+  config:
+    instance-principal:
+        enabled: true
 netty:
   default:
     allocator:
