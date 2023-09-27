@@ -1,3 +1,48 @@
+## GCN Micronaut Price SPA with ATP
+
+GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single page web app and AutonomousDB
+
+#### Instructions
+
+1. Create a sample ATP database schema and data with public access from: https://github.com/mikarinneoracle/atp-ords-liquibase-demo
+2. Create the VS Code project by cloning this repo locally
+3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
+4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
+5. Build and run the app locally in VS Code:
+<pre>
+./gradlew && ./gradlew oci:build -x test
+java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
+</pre>
+6. Create DevOps project and build and deploy the JVM container to OKE
+7. Create OCI load balancer to access the the application from browser:
+<pre>
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: atp-price-spa-lb
+spec:
+  selector:
+    app:  atp-price-spa
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+EOF
+</pre>
+8. Access the OCI load balancer url from browser e.g.
+<pre>
+kubectl get svc
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)             AGE
+atp-price-spa-lb   LoadBalancer   10.96.100.164   138.2.167.157     80:30258/TCP        8s
+</pre>
+
+
+
+
+
+
 ## Micronaut 4.0.3 Documentation
 
 - [User Guide](https://docs.micronaut.io/4.0.3/guide/)
