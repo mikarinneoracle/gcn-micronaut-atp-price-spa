@@ -1,0 +1,23 @@
+micronaut:
+  application:
+    name: atp-pricing
+  router:
+    static-resources:
+      default:
+        enabled: true   
+        mapping: /**  
+        paths: classpath:public
+datasources:
+  default:
+    ocid: ocid1.autonomousdatabase.oc1.eu-frankfurt-1.antheljtuevftmqabctyiqqs2fyucquc4zwquuxqk6jp5feom6oak2czen6a
+    walletPassword: WelcomeFolks123#!
+    username: PRICEADMIN 
+    password: WelcomeFolks123#!
+    dialect: ORACLE
+oci:
+   instance-principal:
+     enabled: true
+netty:
+  default:
+    allocator:
+      max-order: 
