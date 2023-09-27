@@ -2,9 +2,8 @@
 
 GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single page web app and AutonomousDB.
 <p>
-The intention of this sample project is to demonstrate the VS Code GCN extensions & tooling, this is not really a demo how things should
-be organized within a GCN project or as a good coding example with Micronaut :) However, the database classes and interfaces were generated
-with the GCN extension from the database schema that is a very handy tool for developers like me who are not hardcore Java developers .. <3
+The intention of this sample project is to demonstrate the VS Code GCN extensions & tooling. The database classes and interfaces were generated
+with the GCN extension from the database schema that is a very handy tool for developers.
 
 #### Instructions
 
