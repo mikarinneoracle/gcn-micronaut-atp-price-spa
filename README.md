@@ -4,7 +4,7 @@ GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single pag
 
 #### Instructions
 
-1. Create a sample ATP database schema and data with public access from: https://github.com/mikarinneoracle/atp-ords-liquibase-demo
+1. Create a sample ATP database instance with schema and data and public access https://github.com/mikarinneoracle/atp-ords-liquibase-demo (Select the option #2 for Resource Manager/Terraform)
 2. Create the VS Code project by cloning this repo locally
 3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
 4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
@@ -16,7 +16,7 @@ java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
 6. Create DevOps project and build and deploy the JVM container to OKE
 7. Create OCI load balancer to access the the application from browser:
 <pre>
-kubectl apply -f - <<EOF
+kubectl apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: Service
 metadata:
