@@ -44,6 +44,12 @@ env:
     - DOCKER_TAG
 steps:
   - type: Command
+    name: "Generate image tag from build run id"
+    timeoutInSeconds: 300
+    command: |
+      DOCKER_TAG=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-6 | rev`
+      echo "DOCKER_TAG: $DOCKER_TAG"
+  - type: Command
     name: "Install GraalVM EE - JDK and Native Image"
     timeoutInSeconds: 300
     command: |
@@ -71,7 +77,6 @@ steps:
     timeoutInSeconds: 40
     command: |
       echo "OCI_BUILD_RUN_ID: ${OCI_BUILD_RUN_ID}"
-      export DOCKER_TAG="latest"
       echo "DOCKER_TAG: ${DOCKER_TAG}"
   - type: Command
     name: "Package application"
