@@ -1,4 +1,4 @@
-## GCN Micronaut Price SPA with ATP
+## GCN Micronaut "Price" page SPA with ATP - powered by Graal Cloud Native
 
 GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single page web app and AutonomousDB
 
