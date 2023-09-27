@@ -9,7 +9,7 @@ micronaut:
         paths: classpath:public
 datasources:
   default:
-    ocid: ocid1.autonomousdatabase.oc1.eu-frankfurt-1.xxxxxxxxxxxxxxxxx
+    ocid: ocid1.autonomousdatabase.oc1.eu-frankfurt-1.antheljtuevftmqabctyiqqs2fyucquc4zwquuxqk6jp5feom6oak2czen6a
     walletPassword: WelcomeFolks123#!
     username: PRICEADMIN 
     password: WelcomeFolks123#!
