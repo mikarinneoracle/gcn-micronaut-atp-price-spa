@@ -35,7 +35,7 @@ EOF
 <pre>
 kubectl get svc
 NAME               TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)             AGE
-atp-price-spa-lb   LoadBalancer   10.96.100.164   138.2.167.157     80:30258/TCP        8s
+atp-price-spa-lb   LoadBalancer   10.96.100.164   <b>138.2.167.156</b>     80:30258/TCP        8s
 </pre>
 
 <br>
