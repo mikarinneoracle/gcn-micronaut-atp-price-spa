@@ -1,6 +1,9 @@
 ## GCN Micronaut "Price" page SPA with ATP - powered by Graal Cloud Native
 
-GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single page web app and AutonomousDB
+GraalVM Cloud Native (GCN) Micronaut sample project with REST API and single page web app and AutonomousDB.
+The intention of this sample project is to demonstrate the VS Code extension & tooling, this is not really a demo how things should
+be organized within a GCN project or a good coding example with Micronaut :) However, the database classes and interfaces were created
+with the GCN extension from the database schema that is a very handy tool for developers.
 
 #### Instructions
 
