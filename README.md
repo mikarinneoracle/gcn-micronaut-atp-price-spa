@@ -38,9 +38,8 @@ NAME               TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)     
 atp-price-spa-lb   LoadBalancer   10.96.100.164   138.2.167.157     80:30258/TCP        8s
 </pre>
 
-
-
-
+<br>
+<img src="price-spa.png" width="800" />
 
 
 ## Micronaut 4.0.3 Documentation
