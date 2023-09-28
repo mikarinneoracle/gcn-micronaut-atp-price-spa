@@ -28,7 +28,7 @@ public class Application {
     public static class Configurer implements ApplicationContextConfigurer {
         @Override
         public void configure(@NonNull ApplicationContextBuilder builder) {
-            builder.defaultEnvironments("oraclecloud");
+            builder.defaultEnvironments("dev");
             System.out.println("Running as env: " + System.getProperty("micronaut.environments"));
         }
     }

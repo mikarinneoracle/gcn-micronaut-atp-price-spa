@@ -7,16 +7,25 @@ with the GCN extension from the database schema that is a very handy tool for de
 
 #### Instructions
 
-1. Create a sample ATP database instance with schema and data and public access https://github.com/mikarinneoracle/atp-ords-liquibase-demo (Choose the part #2 to use Resource Manager/Terraform)
+1. Create a sample ATP database instance with schema and data and public access https://github.com/mikarinneoracle/atp-ords-liquibase-demo (Choose the part #2 to use Resource Manager/Terraform).
 2. Create the VS Code project by cloning this repo locally
-3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step
-4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step
+3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
+4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
 5. Build and run the app locally in VS Code:
 <pre>
 ./gradlew && ./gradlew oci:build -x test
 java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
 </pre>
+After the first full build you should also be able to run the project from the VS Code Run button.
+This will work locally since we are configuring the <code>dev</code> environment by default in
+<a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/java/com/example/Application.java.yml#L32"><code>Application.java line 32</code></a> (in the GCN generated project the default environment is <code>oraclecloud</code>).
+<br>
+In the the <code>Dockerfile</code> to deploy the app image to OCI we are passing the <code>oraclecloud</code> environment instead:
+<a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/Dockerfile.jvm#L7"><code>
 6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling
+<b><i>Tip</i></b>: To tweak the GCN generated <code>build pipeline</code> I've added a new step to end of it to trigger the OKE deployment pipeline. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
+<br>
+I've also tweaked the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml">build pipeline spec</> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the native build spec.
 7. Create OCI load balancer with <code>kubectl</code> to access the the application from browser:
 <pre>
 kubectl apply -f - &lt;&lt;EOF
