@@ -25,7 +25,7 @@ To make this work for OCI / OKE deployment I'm passing the <code>oraclecloud</co
 <p>
 6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling.
 <br>
-<b><i>Tip</i></b>: To tweak the GCN generated <code>build pipeline</code> I've added a new step to end of it to trigger the OKE deployment pipeline. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
+<b><i>Tip</i></b>: To tweak the GCN generated <code>build pipeline</code> I've added a new step to end of it to trigger the OKE <code>deployment pipeline</code>. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
 <p>
 I've also tweaked the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml">build pipeline spec</a> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec.
 <p>
