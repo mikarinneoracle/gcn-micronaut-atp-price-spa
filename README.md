@@ -22,10 +22,12 @@ This will work locally since I'm configuring the <code>dev</code> environment by
 <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/java/com/example/Application.java#L32"><code>Application.java line 32</code></a> (in the GCN generated project the default environment is <code>oraclecloud</code>).
 <p>
 To make this work for OCI / OKE deployment I'm passing the <code>oraclecloud</code> environment instead in the <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/Dockerfile.jvm#L7"><code>Dockerfile</code></a>. The same for the GraalVM native build.
-6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling
+<p>
+6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling.
+<br>
 <b><i>Tip</i></b>: To tweak the GCN generated <code>build pipeline</code> I've added a new step to end of it to trigger the OKE deployment pipeline. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
 <br>
-I've also tweaked the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml">build pipeline spec</> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec.
+I've also tweaked the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml">build pipeline spec</a> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec.
 7. Create OCI load balancer with <code>kubectl</code> to access the the application from browser:
 <pre>
 kubectl apply -f - &lt;&lt;EOF
