@@ -18,7 +18,7 @@ java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
 </pre>
 After the first full build you should also be able to run the project from the VS Code Run button.
 <p>
-This will work locally since I'm configuring the <code>dev</code> environment by default in
+This will work locally since I'm configuring the environment <code>dev</code> by default in
 <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/java/com/example/Application.java#L32"><code>Application.java line 32</code></a> (in the GCN generated project the default environment is <code>oraclecloud</code>).
 <p>
 To make this work for OCI / OKE deployment I'm passing the <code>oraclecloud</code> environment instead in the <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/Dockerfile.jvm#L7"><code>Dockerfile</code></a>. The same for the GraalVM native build.
