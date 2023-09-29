@@ -29,7 +29,6 @@ public class Application {
         @Override
         public void configure(@NonNull ApplicationContextBuilder builder) {
             builder.defaultEnvironments("dev");
-            System.out.println("Running as env: " + System.getProperty("micronaut.environments"));
         }
     }
     
