@@ -98,10 +98,11 @@ steps:
       echo "APP_FILE: ${APP_FILE}"
       docker build -f ./.devops/Dockerfile.native \
                   --build-arg APP_FILE=oci/build/native/nativeCompile/oci \
-                  -t atp-price-spa-oci:${DOCKER_TAG} -t atp-price-spa-oci:latest .
+                  -t gcn-micronaut-atp-price-spa-oci:${DOCKER_TAG} -t gcn-micronaut-atp-price-spa-oci:latest .
       echo "Done"
       printf "List of docker images:\n $(docker images)"
 outputArtifacts:
-  - name: atp-price-spa_oci_native_docker_image
+  - name: gcn-micronaut-atp-price-spa_oci_native_docker_image
     type: DOCKER_IMAGE
-    location: atp-price-spa-oci:latest
+    location: gcn-micronaut-atp-price-spa-oci:latest
+    
