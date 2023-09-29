@@ -98,10 +98,10 @@ steps:
       echo "JAR_FILE: ${JAR_FILE}"
       docker build -f ./.devops/Dockerfile.jvm \
                   --build-arg JAR_FILE=oci/build/libs/oci-1.0-SNAPSHOT-all.jar \
-                  -t atp-price-spa-oci-jvm:${DOCKER_TAG} -t atp-price-spa-oci-jvm:latest .
+                  -t gcn-micronaut-atp-price-spa-oci-jvm:${DOCKER_TAG} -t gcn-micronaut-atp-price-spa-oci-jvm:latest .
       echo "Done"
       printf "List of docker images:\n $(docker images)"
 outputArtifacts:
-  - name: atp-price-spa_oci_jvm_docker_image
+  - name: gcn-micronaut-atp-price-spa_oci_jvm_docker_image
     type: DOCKER_IMAGE
-    location: atp-price-spa-oci-jvm:latest
+    location: gcn-micronaut-atp-price-spa-oci-jvm:latest
