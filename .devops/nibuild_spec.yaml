@@ -80,5 +80,5 @@ steps:
     name: "Upload application native executable to artifact repository"
     timeoutInSeconds: 3600
     command: |
-      echo "Upload artifact command: oci artifacts generic artifact upload-by-path --repository-id ocid1.artifactrepository.oc1.eu-frankfurt-1.0.amaaaaaauevftmqadwdr372unvicl6oplbw63hxfyhvhntsfosg3k5btdsvq --artifact-path atp-price-spa-dev --artifact-version dev --content-body ${OCI_PRIMARY_SOURCE_DIR}/oci/build/native/nativeCompile/oci --query data.id"
-      export ARTIFACT_ID=`oci artifacts generic artifact upload-by-path --repository-id ocid1.artifactrepository.oc1.eu-frankfurt-1.0.amaaaaaauevftmqadwdr372unvicl6oplbw63hxfyhvhntsfosg3k5btdsvq --artifact-path atp-price-spa-dev --artifact-version dev --content-body ${OCI_PRIMARY_SOURCE_DIR}/oci/build/native/nativeCompile/oci --query data.id`
+      echo "Upload artifact command: oci artifacts generic artifact upload-by-path --repository-id ocid1.artifactrepository.oc1.eu-frankfurt-1.0.amaaaaaauevftmqadwdr372unvicl6oplbw63hxfyhvhntsfosg3k5btdsvq --artifact-path gcn-micronaut-atp-price-spa-dev --artifact-version dev --content-body ${OCI_PRIMARY_SOURCE_DIR}/oci/build/native/nativeCompile/oci --query data.id"
+      export ARTIFACT_ID=`oci artifacts generic artifact upload-by-path --repository-id ocid1.artifactrepository.oc1.eu-frankfurt-1.0.amaaaaaauevftmqadwdr372unvicl6oplbw63hxfyhvhntsfosg3k5btdsvq --artifact-path gcn-micronaut-atp-price-spa-dev --artifact-version dev --content-body ${OCI_PRIMARY_SOURCE_DIR}/oci/build/native/nativeCompile/oci --query data.id`
