@@ -14,7 +14,7 @@ with the GCN extension from the database schema that is a very handy tool for de
 5. Build and run the app locally in VS Code:
 <pre>
 ./gradlew && ./gradlew oci:build -x test
-java -Dmicronaut.environments=dev -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
+java -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
 </pre>
 After the first full build you should also be able to run the project from the VS Code Run button.
 <p>
