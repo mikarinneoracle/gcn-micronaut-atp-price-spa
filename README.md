@@ -21,8 +21,6 @@ After the first full build you should also be able to run the project from the V
 This will work locally since I'm configuring the environment <code>dev</code> by default in
 <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/java/com/example/Application.java#L31"><code>Application.java line 31</code></a> (in the GCN generated project the default environment is <code>oraclecloud</code>).
 <p>
-To make this work for OCI / OKE deployment I'm passing the <code>oraclecloud</code> environment instead in the <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/Dockerfile.jvm#L7"><code>Dockerfile</code></a>. The same for the GraalVM native build.
-<p>
 6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling.
 <br>
 <b><i>Tip</i></b>: I've modified the GCN generated <code>build pipeline</code> a bit so that I've added a new step to end of it to trigger the OKE <code>deployment pipeline</code> automatically after the build. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
