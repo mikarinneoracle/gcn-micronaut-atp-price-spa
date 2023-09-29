@@ -25,7 +25,7 @@ This will work locally since I'm configuring the environment <code>dev</code> by
 <br>
 <b><i>Tip</i></b>: I've modified the GCN generated <code>build pipeline</code> a bit so that I've added a new step to end of it to trigger the OKE <code>deployment pipeline</code> automatically after the build. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
 <p>
-I've also modified the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml#L47">build pipeline spec</a> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec. (Also the line that assigns the docker tag value latest needs to be removed at line 74 or so to make this work.)
+I've also modified the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml#L47">build pipeline spec</a> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec. (Also the line that assigns the docker tag value latest needs to be removed at line 74 or so to make this work.) <i>You can copy paste the Build pipeline specs from this repo after creating the devops project in VS Code that will override these files when creating.</i>
 <p>
 7. Create OCI load balancer with <code>kubectl</code> to access the the application from browser:
 <pre>
@@ -47,7 +47,7 @@ EOF
 8. Access the OCI load balancer url from browser e.g.
 <pre>
 kubectl get svc
-NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)            AGE
+NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)           AGE
 gcn-micronaut-atp-price-lb   LoadBalancer   10.96.100.164   <b>138.2.167.156</b>     80:30258/TCP        8s
 </pre>
 
