@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: gcn-micronaut-atp-price
+    name: gcn-micronaut-atp-price-spa
   router:
     static-resources:
       default:
