@@ -38,7 +38,7 @@ metadata:
   name: gcn-micronaut-atp-price-lb
 spec:
   selector:
-    app:  gcn-micronaut-atp-price
+    app:  gcn-micronaut-atp-price-lb
   ports:
     - protocol: TCP
       port: 80
