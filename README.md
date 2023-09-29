@@ -49,7 +49,7 @@ EOF
 8. Access the OCI load balancer url from browser e.g.
 <pre>
 kubectl get svc
-NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)       AGE
+NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP         PORT(S)       AGE
 gcn-micronaut-atp-price-lb   LoadBalancer   10.96.100.164   <b>138.2.167.156</b>     80:30258/TCP        8s
 </pre>
 
