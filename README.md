@@ -11,7 +11,7 @@ with the GCN extension from the database schema that is a very handy tool for de
 2. Create the VS Code project by cloning this repo locally. After cloning remove the git directory from project root by <code>rm -rf .git</code> in the project terminal.
 3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
 4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
-5. Build and run the app locally in VS Code by navigating to <code>Application.java</code> under <i>oci/src/main/java/com/example/</i> directory and clicking the Start button &#9655;. You can also build and run from the terminal by: 
+5. Build and run the app locally in VS Code by navigating to <code>Application.java</code> under <i>oci/src/main/java/com/example/</i> directory and clicking the Run Java button ( &#9655; ). You can also build and run from the terminal by: 
 <pre>
 ./gradlew && ./gradlew oci:build -x test
 java -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
