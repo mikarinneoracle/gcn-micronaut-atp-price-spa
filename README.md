@@ -12,22 +12,10 @@ with the GCN extension from the database schema that is a very handy tool for de
 3. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-dev.yml#L12"><code>application-dev.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
 4. Edit <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/resources/application-oraclecloud.yml#L12"><code>application-oraclecloud.yaml line 12</code></a> by placing the OCID of the ATP instance created in the first step.
 5. Build and run the app locally in VS Code by navigating to <code>Application.java</code> under <i>oci/src/main/java/com/example/</i> directory and clicking the Run Java button ( &#9655; ).
-<p>
-You can also build and run from the terminal by: 
-<pre>
-./gradlew && ./gradlew oci:build -x test
-java -jar oci/build/libs/oci-1.0-SNAPSHOT-all.jar
-</pre>
-<p>
-This will work locally since I'm configuring the environment <code>dev</code> by default in
+<br>This will work locally since I'm configuring the environment <code>dev</code> by default in
 <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/oci/src/main/java/com/example/Application.java#L31"><code>Application.java line 31</code></a> (in the GCN generated project the default environment is <code>oraclecloud</code>).
-<p>
 6. Create DevOps project from VS Code and build and deploy the JVM container to OKE using the extension tooling.
-<br>
-<b><i>Tip</i></b>: I've modified the GCN generated <code>build pipeline</code> a bit so that I've added a new step to end of it to trigger the OKE <code>deployment pipeline</code> automatically after the build. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
-<p>
-I've also modified the GCN generated <a href="https://github.com/mikarinneoracle/gcn-micronaut-atp-price-spa/blob/master/.devops/oci_docker_jvmbuild_spec.yaml#L47">build pipeline spec</a> so that instead using tag <code>latest</code> it generates a new tag from <code>${OCI_BUILD_RUN_ID}</code> and uses that for the container image deployment to OKE. Same for the GraalVM native build spec. (Also the line that assigns the docker tag value latest needs to be removed at line 74 or so to make this work.) <i>You can copy paste the Build pipeline specs from this repo after creating the devops project in VS Code that will override these files when creating.</i>
-<p>
+<br><b><i>Tip</i></b>: I've modified the GCN generated <code>build pipeline</code> a bit so that I've added a new step to end of it to trigger the OKE <code>deployment pipeline</code> automatically after the build. Also, for automatic builds when committing code I've added a trigger to OCI DevOps project to kick-off the deployment pipeline (and hence also the deployment pipeline) automatically. This works for both JVM and GraalVM Native builds. 
 7. Create OCI load balancer with <code>kubectl</code> to access the the application from browser:
 <pre>
 kubectl apply -f - &lt;&lt;EOF
